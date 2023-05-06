@@ -1,6 +1,6 @@
 import { ScrollView, Text, View } from "react-native";
 import Ionicons from "@expo/vector-icons/Ionicons";
-import Card from "./Card";
+import Card from "../components/Card";
 
 export default Reviews = () => {
   return (

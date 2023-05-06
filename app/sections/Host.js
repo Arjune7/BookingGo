@@ -6,9 +6,9 @@ import {
   TouchableOpacity,
   Dimensions,
 } from "react-native";
-import SPACING from "../config/SPACING";
-import HostCard from "./HostCard";
+import HostCard from "../components/HostCard";
 import Ionicons from "@expo/vector-icons/Ionicons";
+import ShowMoreButton from "../components/ShowMoreButton";
 
 export default Host = () => {
   const { width, height } = Dimensions.get("screen");
@@ -53,20 +53,7 @@ export default Host = () => {
           Presqu'ile. As a roommate with Laurianne and Marco, we will make you
           feel at home and share our favorite places.
         </Text>
-        <View
-          style={{ marginTop: 20, flexDirection: "row", alignItems: "center" }}
-        >
-          <Text
-            style={{
-              fontWeight: "600",
-              fontSize: 15,
-              textDecorationLine: "underline",
-            }}
-          >
-            Show More
-          </Text>
-          <Ionicons name="chevron-forward-outline" size={15} />
-        </View>
+       <ShowMoreButton/>
         <TouchableOpacity
           style={{
             backgroundColor: "black",

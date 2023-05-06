@@ -16,8 +16,9 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 import NewModal from "../components/NewModal";
 import { Calendar } from "react-native-calendars";
 import { eachDayOfInterval, format } from "date-fns";
-import Reviews from "../components/Review";
-import Host from "../components/Host";
+import Reviews from "../sections/Review";
+import Host from "../sections/Host";
+import ShowMoreButton from "../components/ShowMoreButton";
 
 const TourDetailScreen = ({ route, navigation }) => {
   let { tour } = route.params;
@@ -439,6 +440,94 @@ const TourDetailScreen = ({ route, navigation }) => {
                 }}
               >
                 <Host />
+              </View>
+
+              <View
+                style={{
+                  marginTop: 30,
+                  borderTopWidth: 0.4,
+                  borderColor: "black",
+                }}
+              >
+                <Text
+                  style={{
+                    color: "black",
+                    fontSize: 25,
+                    marginTop: 20,
+                    fontWeight: "600",
+                    marginBottom: 10,
+                  }}
+                >
+                  House Rules
+                </Text>
+                <View
+                  style={{ flexDirection: "column", marginTop: 20, gap: 10 }}
+                >
+                  <Text style={{ fontSize: 15 }}>Check in After 12:00 pm</Text>
+                  <Text style={{ fontSize: 15 }}>Checkout Before 10:00 am</Text>
+                  <Text style={{ fontSize: 15 }}>2 guests allowed maximum</Text>
+
+                  <ShowMoreButton />
+                </View>
+              </View>
+
+              <View
+                style={{
+                  marginTop: 30,
+                  borderTopWidth: 0.4,
+                  borderColor: "black",
+                }}
+              >
+                <Text
+                  style={{
+                    color: "black",
+                    fontSize: 25,
+                    marginTop: 20,
+                    fontWeight: "600",
+                    marginBottom: 10,
+                  }}
+                >
+                  Safety & Property
+                </Text>
+                <View
+                  style={{ flexDirection: "column", marginTop: 20, gap: 10 }}
+                >
+                  <Text style={{ fontSize: 15 }}>
+                    Carbon monoxide fireAlarm
+                  </Text>
+                  <Text style={{ fontSize: 15 }}>Smoke alarm</Text>
+                  <Text style={{ fontSize: 15 }}>Pet(s) live on Property</Text>
+
+                  <ShowMoreButton />
+                </View>
+              </View>
+
+              <View
+                style={{
+                  marginTop: 30,
+                  borderTopWidth: 0.4,
+                  borderColor: "black",
+                }}
+              >
+                <View
+                  style={{
+                    flexDirection: "row",
+                    alignItems: "center",
+                    marginTop: 20,
+                    gap: 10,
+                  }}
+                >
+                  <Ionicons name="flag" size={20} />
+                  <Text
+                    style={{
+                      textDecorationLine: "underline",
+                      fontSize: 15,
+                      fontWeight: "bold",
+                    }}
+                  >
+                    Report this listing
+                  </Text>
+                </View>
               </View>
             </View>
           </View>
