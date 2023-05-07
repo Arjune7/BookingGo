@@ -1,6 +1,7 @@
 import { ScrollView, Text, View } from "react-native";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import Card from "../components/Card";
+import ShowMoreButton from "../components/ShowMoreButton";
 
 export default Reviews = () => {
   return (
@@ -15,13 +16,14 @@ export default Reviews = () => {
         />
         <Text style={{ fontSize: 20, fontWeight: "600" }}>180 Reviews</Text>
       </View>
-      <ScrollView style={{ marginTop: 30 }} horizontal>
+      <ScrollView style={{ marginTop: 30 , marginBottom : 10 }} horizontal>
         <View style={{ flex: 1, flexDirection: "row", gap: 20 }}>
           <Card />
           <Card />
           <Card />
         </View>
       </ScrollView>
+      <ShowMoreButton />
     </ScrollView>
   );
 };

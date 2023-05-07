@@ -19,6 +19,7 @@ import { eachDayOfInterval, format } from "date-fns";
 import Reviews from "../sections/Review";
 import Host from "../sections/Host";
 import ShowMoreButton from "../components/ShowMoreButton";
+import AmenityCard from "../components/AmenityCard";
 
 const TourDetailScreen = ({ route, navigation }) => {
   let { tour } = route.params;
@@ -60,19 +61,11 @@ const TourDetailScreen = ({ route, navigation }) => {
 
     setMarkedDates(updatedMarkedDates);
   };
-
-  // const resetDate = () => {
-  //   setSelected({start : '' , end : ''})
-  // }
-
   return (
     <>
       <SafeAreaView>
         <ScrollView>
-          <ImageBackground
-            source={tour.image}
-            style={{ height: height * 0.65 }}
-          >
+          <ImageBackground source={tour.image} style={{ height: height * 0.4 }}>
             <SafeAreaView>
               <View
                 style={{
@@ -164,124 +157,167 @@ const TourDetailScreen = ({ route, navigation }) => {
             >
               <Text
                 style={{
-                  fontSize: SPACING * 2,
-                  fontWeight: "bold",
+                  fontSize: SPACING * 3,
+                  fontWeight: "400",
                   color: COLORS.dark,
                 }}
               >
                 {tour.title}
               </Text>
-              <View style={{ flexDirection: "row", alignItems: "flex-end" }}>
-                <Text
-                  style={{
-                    fontSize: SPACING * 2,
-                    fontWeight: "bold",
-                    color: COLORS.dark,
-                  }}
-                >
-                  {tour.price}
-                </Text>
-                <Text>/person</Text>
-              </View>
             </View>
             <View style={{ marginVertical: SPACING * 2 }}>
-              <View style={{ flexDirection: "row", marginBottom: SPACING * 2 }}>
-                <TouchableOpacity
-                  style={{ paddingVertical: SPACING, marginRight: SPACING * 2 }}
+              <View
+                style={{
+                  flexDirection: "column",
+                  marginTop: 10,
+                  alignItems: "flex-start",
+                  gap: 10,
+                }}
+              >
+                <View
+                  style={{ flexDirection: "row", alignItems: "center", gap: 5 }}
                 >
+                  <Ionicons name="star" size={15} />
+                  <Text>4.98</Text>
+                  <Ionicons name="ellipse" size={3} />
                   <Text
                     style={{
-                      color: COLORS.primary,
-                      fontWeight: "bold",
-                      fontSize: SPACING * 1.7,
+                      textDecorationLine: "underline",
+                      fontWeight: "500",
                     }}
                   >
-                    Overview
+                    291 Reviews
                   </Text>
-                </TouchableOpacity>
-                <TouchableOpacity
-                  style={{ paddingVertical: SPACING, marginRight: SPACING * 2 }}
+                  <Ionicons name="ellipse" size={3} />
+                  <Ionicons name="heart" size={15} />
+
+                  <Text style={{ fontWeight: "300" }}>SuperHost</Text>
+                </View>
+                <View
+                  style={{ flexDirection: "row", alignItems: "center", gap: 5 }}
                 >
-                  <Text>Reviews</Text>
-                </TouchableOpacity>
-              </View>
-              <View style={{ marginBottom: SPACING * 2, flexDirection: "row" }}>
-                <View style={{ flexDirection: "row" }}>
-                  <View
-                    style={{
-                      backgroundColor: COLORS.white,
-                      shadowColor: COLORS.dark,
-                      shadowOffset: { width: SPACING / 2, height: SPACING },
-                      shadowRadius: SPACING / 2,
-                      shadowOpacity: 0.1,
-                      padding: SPACING / 2,
-                      borderRadius: SPACING / 2,
-                      marginRight: SPACING,
-                    }}
-                  >
-                    <Ionicons
-                      name="time"
-                      size={SPACING * 3}
-                      color={COLORS.primary}
-                    />
-                  </View>
-                  <View style={{ marginRight: SPACING * 2 }}>
-                    <Text
-                      style={{
-                        fontSize: SPACING + 1,
-                        marginBottom: SPACING / 2,
-                        textTransform: "uppercase",
-                      }}
-                    >
-                      Duration
-                    </Text>
-                    <Text
-                      style={{ fontSize: SPACING * 1.6, fontWeight: "700" }}
-                    >
-                      {tour.duration}
-                    </Text>
-                  </View>
-                </View>
-                <View style={{ flexDirection: "row" }}>
-                  <View
-                    style={{
-                      backgroundColor: COLORS.white,
-                      shadowColor: COLORS.dark,
-                      shadowOffset: { width: SPACING / 2, height: SPACING },
-                      shadowRadius: SPACING / 2,
-                      shadowOpacity: 0.1,
-                      padding: SPACING / 2,
-                      borderRadius: SPACING / 2,
-                      marginRight: SPACING,
-                    }}
-                  >
-                    <Ionicons
-                      name="star"
-                      size={SPACING * 3}
-                      color={COLORS.primary}
-                    />
-                  </View>
-                  <View style={{ marginRight: SPACING * 2 }}>
-                    <Text
-                      style={{
-                        fontSize: SPACING + 1,
-                        marginBottom: SPACING / 2,
-                        textTransform: "uppercase",
-                      }}
-                    >
-                      Rating
-                    </Text>
-                    <Text
-                      style={{ fontSize: SPACING * 1.6, fontWeight: "700" }}
-                    >
-                      {tour.rating} out of 5
-                    </Text>
-                  </View>
+                  <Ionicons name="pin" size={15} />
+                  <Text style={{ textDecorationLine: "underline" }}>
+                    England , United Kingdom
+                  </Text>
                 </View>
               </View>
-              <View>
-                <Text style={{ color: COLORS.dark }}>{tour.description}</Text>
+
+              {/* Room By */}
+
+              <View
+                style={{
+                  flexDirection: "column",
+                  marginTop: 30,
+                  borderTopWidth: 0.4,
+                  borderColor: "black",
+                }}
+              >
+                <View
+                  style={{
+                    flexDirection: "row",
+                    alignItems: "center",
+                    marginTop: 10,
+                    justifyContent: "space-between",
+                  }}
+                >
+                  <Text style={{ fontSize: 25, width: "70%" }}>
+                    Room in a apartment By Arjun
+                  </Text>
+                  <Image
+                    style={{
+                      height: SPACING * 5,
+                      width: SPACING * 5,
+                      borderRadius: SPACING * 5,
+                    }}
+                    source={require("../assets/images/Avatar.png")}
+                  />
+                </View>
+                <ScrollView
+                  style={{ marginTop: 30, marginBottom: 10 }}
+                  horizontal
+                >
+                  <View style={{ flex: 1, flexDirection: "row", gap: 20 }}>
+                    <AmenityCard />
+                    <AmenityCard />
+                    <AmenityCard />
+                  </View>
+                </ScrollView>
               </View>
+
+              <View
+                style={{
+                  flexDirection: "column",
+                  marginTop: 30,
+                  borderTopWidth: 0.4,
+                  borderColor: "black",
+                  width: width * 0.8,
+                }}
+              >
+                <View style={{ marginTop: 20, flexDirection: "column" }}>
+                  <View
+                    style={{
+                      flexDirection: "row",
+                      alignItems: "flex-start",
+                      gap: 10,
+                    }}
+                  >
+                    <Ionicons name="bed-outline" size={25} />
+                    <View style={{ flexDirection: "column" }}>
+                      <Text style={{ fontSize: 18, fontWeight: "500" }}>
+                        Room in a Rental Unit
+                      </Text>
+                      <Text style={{ fontSize: 15 }}>
+                        You own the room , plus shared access to shared space
+                      </Text>
+                    </View>
+                  </View>
+
+                  <View
+                    style={{
+                      flexDirection: "row",
+                      alignItems: "flex-start",
+                      gap: 10,
+                      marginTop: 10,
+                    }}
+                  >
+                    <Ionicons name="briefcase-outline" size={25} />
+                    <View style={{ flexDirection: "column" }}>
+                      <Text style={{ fontSize: 18, fontWeight: "500" }}>
+                        Dedicated work Space
+                      </Text>
+                      <Text style={{ fontSize: 15 }}>Dedicated Workspace</Text>
+                    </View>
+                  </View>
+
+                  <View
+                    style={{
+                      flexDirection: "row",
+                      alignItems: "flex-start",
+                      gap: 10,
+                      marginTop: 10,
+                    }}
+                  >
+                    <Ionicons name="calendar-outline" size={25} />
+                    <View style={{ flexDirection: "column" }}>
+                      <Text style={{ fontSize: 18, fontWeight: "500" }}>
+                        Free Cancellation for 48 hours
+                      </Text>
+                    </View>
+                  </View>
+                </View>
+              </View>
+
+              <View
+                style={{
+                  marginTop: 30,
+                  borderTopWidth: 0.4,
+                  borderColor: "black",
+                }}
+              >
+                <Host />
+              </View>
+
               {/* Amenities */}
               <View
                 style={{
@@ -377,6 +413,7 @@ const TourDetailScreen = ({ route, navigation }) => {
                   </TouchableOpacity>
                 </View>
               </View>
+
               <View
                 style={{
                   marginTop: 30,
@@ -432,15 +469,6 @@ const TourDetailScreen = ({ route, navigation }) => {
                 <Reviews />
               </View>
               {/* // Meet your Host Section */}
-              <View
-                style={{
-                  marginTop: 30,
-                  borderTopWidth: 0.4,
-                  borderColor: "black",
-                }}
-              >
-                <Host />
-              </View>
 
               <View
                 style={{
@@ -531,7 +559,6 @@ const TourDetailScreen = ({ route, navigation }) => {
               </View>
             </View>
           </View>
-          <NewModal />
         </ScrollView>
       </SafeAreaView>
     </>
