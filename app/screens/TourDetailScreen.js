@@ -22,7 +22,7 @@ import ShowMoreButton from "../components/ShowMoreButton";
 import AmenityCard from "../components/AmenityCard";
 
 const TourDetailScreen = ({ route, navigation }) => {
-  let { tour } = route.params;
+  let { destination } = route.params;
   let { width, height } = Dimensions.get("screen");
 
   const [selected, setSelected] = useState({ start: "", end: "" });
@@ -65,7 +65,7 @@ const TourDetailScreen = ({ route, navigation }) => {
     <>
       <SafeAreaView>
         <ScrollView>
-          <ImageBackground source={tour.image} style={{ height: height * 0.4 }}>
+          <ImageBackground source={{uri : destination.Photos}} style={{ height: height * 0.4 }}>
             <SafeAreaView>
               <View
                 style={{
@@ -116,7 +116,7 @@ const TourDetailScreen = ({ route, navigation }) => {
                       size={SPACING * 3}
                     />
                   </TouchableOpacity>
-                  <View style={{ marginBottom: SPACING * 3 }}>
+                  {/* <View style={{ marginBottom: SPACING * 3 }}>
                     {tour.images.map((gallery, index) => (
                       <TouchableOpacity
                         style={{
@@ -139,7 +139,7 @@ const TourDetailScreen = ({ route, navigation }) => {
                         />
                       </TouchableOpacity>
                     ))}
-                  </View>
+                  </View> */}
                 </View>
               </View>
             </SafeAreaView>
@@ -162,7 +162,7 @@ const TourDetailScreen = ({ route, navigation }) => {
                   color: COLORS.dark,
                 }}
               >
-                {tour.title}
+                {destination.name}
               </Text>
             </View>
             <View style={{ marginVertical: SPACING * 2 }}>
@@ -430,7 +430,7 @@ const TourDetailScreen = ({ route, navigation }) => {
                     marginBottom: 10,
                   }}
                 >
-                  {stay} nights in {tour.title}
+                  {stay} nights in {destination.name}
                 </Text>
 
                 {/* //calendars */}
